@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529202830) do
+ActiveRecord::Schema.define(version: 20160529232427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,10 @@ ActiveRecord::Schema.define(version: 20160529202830) do
     t.string   "header_pic"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "team_id"
   end
+
+  add_index "cities", ["team_id"], name: "index_cities_on_team_id", using: :btree
 
   create_table "memories", force: :cascade do |t|
     t.string   "name"
@@ -34,7 +37,12 @@ ActiveRecord::Schema.define(version: 20160529202830) do
     t.string   "hometown"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "team_id"
   end
+
+  add_index "memories", ["team_id"], name: "index_memories_on_team_id", using: :btree
+  add_index "memories", ["user_id"], name: "index_memories_on_user_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "team_name"
@@ -45,7 +53,10 @@ ActiveRecord::Schema.define(version: 20160529202830) do
     t.string   "venue"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "city_id"
   end
+
+  add_index "teams", ["city_id"], name: "index_teams_on_city_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -58,4 +69,8 @@ ActiveRecord::Schema.define(version: 20160529202830) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "cities", "teams"
+  add_foreign_key "memories", "teams"
+  add_foreign_key "memories", "users"
+  add_foreign_key "teams", "cities"
 end
