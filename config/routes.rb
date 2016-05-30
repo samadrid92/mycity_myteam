@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get '/cities/new', to: 'cities#new'
   post '/cities', to: 'cities#create'
   get '/cities/:id', to: 'cities#show', as: 'city'
+  get '/cities/:id/edit', to: 'cities#edit', as: 'edit_creature'
+  patch '/cities/:id', to: 'cities#update'
+  delete '/cities/:id', to: 'cities#destroy'
+
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
