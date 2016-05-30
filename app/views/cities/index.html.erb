@@ -1,6 +1,6 @@
 
 <% @cities.each do |c| %>
-  <%= c.city_name %>
+  <%= link_to "#{c.city_name}", city_path(c) %>
   <%= c.date_founded %>
   <%= c.population %>
   <%= c.nicknames %>
