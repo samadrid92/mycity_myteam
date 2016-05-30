@@ -1,1 +1,3 @@
-hi
+<% @cities.each do |c| %>
+  <%= link_to "#{c.city_name}", city_path(c) %>
+<% end %>

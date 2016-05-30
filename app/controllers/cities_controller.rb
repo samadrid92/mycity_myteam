@@ -26,9 +26,6 @@ class CitiesController < ApplicationController
     redirect_to city_path(@city)
   end
 
-  def destory
-  end
-
   private
 
   def city_params
