@@ -1,0 +1,11 @@
+<h1>Edit Team!</h1>
+
+<%= form_for [@city, @team] do |t| %>
+  <%= t.text_field :team_name, placeholder: "Team's Name" %>
+  <%= t.date_field :date_founded, placeholder: "Date Founded" %>
+  <%= t.text_field :colors, placeholder: "colors" %>
+  <%= t.number_field :total_championships, placeholder: "Number of Championships" %>
+  <%= t.text_area :history, placeholder: "History of Team" %>
+  <%= t.text_area :venue, placeholder: "Venue" %>
+  <%= t.submit "Save Team" %>
+<% end %>

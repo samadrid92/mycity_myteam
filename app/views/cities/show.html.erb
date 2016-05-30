@@ -1,2 +1,9 @@
 <h1>You made it to the city show page!</h1>
-<%= @city.city_name %>
+<%= @city.city_name %><br>
+
+<%= link_to "New #{@city.city_name} Team", new_city_team_path(@city, @teams) %>
+<br>
+<% @teams.each do |t| %>
+  Team Name:<%= t.team_name %><br>
+  Team's Cities Id:<%= t.city_id %>
+<% end %>
