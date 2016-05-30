@@ -1,1 +1,9 @@
-hi
+
+<% @cities.each do |c| %>
+  <%= c.city_name %>
+  <%= c.date_founded %>
+  <%= c.population %>
+  <%= c.nicknames %>
+  <%= c.header_pic %>
+  <%= link_to "Edit", edit_city_path(c) %>
+<% end %>

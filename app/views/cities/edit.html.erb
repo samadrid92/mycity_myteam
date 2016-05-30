@@ -1,0 +1,10 @@
+<h1>Edit City!</h1>
+
+<%= form_for @city do |f| %>
+  <%= f.text_field :city_name, placeholder: "City" %>
+  <%= f.date_field :date_founded, placeholder: "Date Founded" %>
+  <%= f.number_field :population, placeholder: "Population" %>
+  <%= f.text_field :nicknames, placeholder: "List of Nicknames" %>
+  <%= f.text_field :header_pic, placeholder: "Header Url" %>
+  <%= f.submit "Update City" %>
+<% end %>

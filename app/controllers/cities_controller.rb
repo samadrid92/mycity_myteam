@@ -13,7 +13,7 @@ class CitiesController < ApplicationController
   end
 
   def show
-
+    @city = City.find_by_id(params[:id])
   end
 
   def edit
@@ -23,7 +23,7 @@ class CitiesController < ApplicationController
   def update
     @city = City.find_by_id(params[:id])
     @city.update(city_params)
-    redirect_to city_path(@city)
+    redirect_to cities_path(@city)
   end
 
   private
