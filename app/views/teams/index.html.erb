@@ -1,0 +1,30 @@
+all teams here
+
+
+
+
+<% @teams.each do |t| %>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card white darken-1">
+      <div class="card-content black-text">
+        <span class="card-title"><%= link_to "#{t.team_name}", city_team_path(@city, t.id) %></span>
+        <p>
+          <strong>ID:</strong> <%= t.id %><br>
+          <strong>Team's Name:</strong> <%= t.team_name %><br>
+          <strong>Date Founded:</strong> <%= t.date_founded %><br>
+          <strong>Colors:</strong> <%= t.colors %><br>
+          <strong>Total Championships:</strong> <%= t.total_championships %><br>
+          <strong>History:</strong> <%= t.history %><br>
+          <strong>Venue:</strong> <%= t.venue %><br>
+          <strong>City Id:</strong> <%= t.city_id %>
+        </p>
+      </div>
+      <div class="card-action">
+        <%= link_to "Edit", edit_city_team_path(@city, t.id) %>
+        <%= link_to "Delete", destroy_team_path(@city, t.id), method: :delete, data: { confirm: 'Are You Sure?' } %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
