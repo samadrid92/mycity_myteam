@@ -18,6 +18,14 @@ Rails.application.routes.draw do
   patch '/cities/:city_id/teams/:team_id', to: 'teams#update'
   delete '/cities/:city_id/teams/:team_id', to: 'teams#destroy', as: 'destroy_team'
 
+  get '/cities/:city_id/teams/:team_id/memories', to: 'memories#index', as: 'team_memories'
+  get '/cities/:city_id/teams/:team_id/memories/new', to: 'memories#new', as: 'new_team_memory'
+  post '/cities/:city_id/teams/:team_id/memories', to: 'memories#create', as: 'city_team_memories'
+  get '/cities/:city_id/teams/:team_id/memories/:memory_id', to: 'memories#show', as: 'team_memory'
+  get '/cities/:city_id/teams/:team_id/memories/memory_id/edit', to: 'memories#edit', as: 'edit_team_memory'
+  patch '/cities/:city_id/teams/:team_id/memories/memory_id', to: 'memories#update'
+  delete '/cities/:city_id/teams/:team_id/memories/memory_id', to: 'memories#destroy', as: 'destroy_team_memory'
+
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

@@ -1,0 +1,12 @@
+<h4>Add A Memory!<h4>
+
+<%= form_for :memory, :url => city_team_memories_path(@city, @team) do |m| %>
+  <%= m.text_field :name, placeholder: "Your Name" %>
+  <%= m.text_area :description, placeholder: "Your Memory Of Team" %>
+  <%= m.number_field :age, placeholder: "Your age" %>
+  <%= m.date_field :date, placeholder: "When did this happen?" %>
+  <%= m.text_field :hometown, placeholder: "Your Hometown" %>
+  <%= m.submit "Save Team" %>
+<% end %>
+
+<!-- , :url => new_team_memory_path(@team, @memory) -->
