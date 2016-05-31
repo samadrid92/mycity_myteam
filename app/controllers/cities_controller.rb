@@ -14,7 +14,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find_by_id(params[:id])
-    @teams = @city.teams.all.order("created_at desc")
+    @teams = @city.teams.all
   end
 
   def edit

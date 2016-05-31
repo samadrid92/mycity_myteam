@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   get '/cities/:city_id/teams/new', to: 'teams#new', as: 'new_city_team'
   post '/cities/:city_id/teams', to: 'teams#create'
   get '/cities/:city_id/teams/:team_id', to: 'teams#show', as: 'city_team'
-  get '/cities/:city_id/teams/edit', to: 'cities#edit', as: 'edit_city_team'
-  patch '/cities/:city_id/teams/team_id', to: 'cities#update'
-  delete '/cities/:city_id/teams/team_id', to: 'cities#destroy'
+  get '/cities/:city_id/teams/:team_id/edit', to: 'teams#edit', as: 'edit_city_team'
+  patch '/cities/:city_id/teams/:team_id', to: 'teams#update'
+  delete '/cities/:city_id/teams/:team_id', to: 'teams#destroy', as: 'destroy_team'
 
 
   get '/login', to: 'sessions#new'

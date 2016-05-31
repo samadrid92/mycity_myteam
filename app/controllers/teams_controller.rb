@@ -1,14 +1,14 @@
 class TeamsController < ApplicationController
 
   before_action :set_city
+  before_action :find_team, only: [:show, :index]
 
   def index
     @teams = Team.all
   end
 
   def show
-    @team = Team.find(params[:id])
-    @city = City.find_by_id(@team.city_id)
+    @team = @city.teams.find_by_id(params[:team_id])
   end
 
   def new
@@ -26,18 +26,18 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = @city.teams.find(params[:id])
-    @city = City.find_by_id(@team.city_id)
+    @team = @city.teams.find_by_id(params[:team_id])
+    # @city = City.find_by_id(@team.city_id)
   end
 
   def update
-    @team = Team.find(params[:id])
+    @team = @city.teams.find_by_id(params[:team_id])
     @team.update(team_params)
-    redirect_to city_team(@city, @team)
+    redirect_to city_teams_path(@city, @team)
   end
 
   def destroy
-    @team = Team.find(params[:id])
+    @team = @city.teams.find_by_id(params[:team_id])
     if @team.destroy
       redirect_to city_teams_path(@city, @team)
     else
@@ -57,12 +57,12 @@ class TeamsController < ApplicationController
       params.require(:team).permit(:team_name, :date_founded, :colors, :total_championships, :history, :venue, :city_id)
     end
 
-    # def find_post
+    def find_team
     # This assumes you have an association set up as needed
-    #   @post = Post.find_by_id(params[:id])
-    #
-    #   if @post.nil?
-    #     redirect_to root_path
-    #   end
-    # end
+      @team = Team.find_by_id(params[:id])
+
+      # if @team.nil?
+      #   redirect_to root_path
+      # end
+    end
 end
