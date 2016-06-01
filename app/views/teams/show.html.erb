@@ -106,7 +106,7 @@ $(document).ready(function(){
     <!-- modal trigger -->
     <a class="waves-effect waves-light btn modal-trigger" href="#modal1" data-target="#modal1">Create A Memory!</a>
 
-    <!-- Modal Structure -->
+    <!-- Modal Structure/create a new memory -->
     <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Add A Memory</h4>
@@ -125,7 +125,7 @@ $(document).ready(function(){
     <tr class="memories-row" data-memory-name="<%= m.name  %>" data-memory-age="<%= m.age %>" data-memory-date="<%= m.date %>">
       <td class="memories-table"><%= m.name %></td>
       <td class="memories-table"><%= m.description %></td>
-      <td class="memories-table">$<%= m.age %></td>
+      <td class="memories-table"><%= m.age %></td>
       <td class="memories-table"><%= m.date %></td>
       <td class="memories-table"><%= m.hometown %></td>
     </tr>

@@ -10,7 +10,14 @@ class TeamsController < ApplicationController
 
   def show
     @team = @city.teams.find_by_id(params[:team_id])
-    @memory = @team.memories.find_by_id(params[:memory_id])
+    if @team
+      @user = current_user
+      @memory = Memory.new
+      @memories = @team.memories.all
+      render :show
+    else
+      redirect_to root_path
+    end
   end
 
   def new
