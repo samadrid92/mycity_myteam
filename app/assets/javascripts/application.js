@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
   $(function(){
     $('.parallax').parallax();
@@ -25,8 +25,12 @@
   });
 
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  // $('.modal-trigger').leanModal();
-  // console.log("loading modal js stuff");
+  $('.modal-trigger').leanModal();
+  console.log("loading modal js stuff");
+  //image carousel for welcome page
+  $(document).ready(function(){
+      $('.slider').slider({full_width: true});
+    });
 
 
- // })
+ })
