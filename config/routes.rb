@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   patch '/cities/:city_id/teams/:team_id/memories/:memory_id', to: 'memories#update', as: 'update_team_memory'
   delete '/cities/:city_id/teams/:team_id/memories/:memory_id', to: 'memories#destroy', as: 'destroy_team_memory'
 
+  # route to grab json for data points
   get '/api/cities/:city_id/teams/:team_id/memories', to: 'json#memories'
 
 

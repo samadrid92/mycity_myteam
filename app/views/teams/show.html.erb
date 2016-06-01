@@ -1,4 +1,7 @@
 <h1>You Made it to teams show page!</h1>
+<!-- grabs city and team id for ajax params -->
+<%= hidden_field_tag 'cityId', value = @city.id %>
+<%= hidden_field_tag 'teamId', value = @team.id %>
 
 <h1><%= @team.team_name %></h1>
 <div class="section grey">
@@ -6,8 +9,6 @@
     HI
   </div>
 </div>
-<%= hidden_field_tag 'cityId', value = @city.id %>
-<%= hidden_field_tag 'teamId', value = @team.id %>
 
 <div class="section white">
   <div class="row container">
@@ -42,16 +43,6 @@
           <% end %>
       </div>
     </div>
-
-    <%  @memories.each do |m|%>
-    <tr class="memories-row" data-memory-name="<%= m.name  %>" data-memory-age="<%= m.age %>" data-memory-date="<%= m.date %>">
-      <td class="memories-table"><%= m.name %></td>
-      <td class="memories-table"><%= m.description %></td>
-      <td class="memories-table"><%= m.age %></td>
-      <td class="memories-table"><%= m.date %></td>
-      <td class="memories-table"><%= m.hometown %></td>
-    </tr>
-    <% end %>
 
     <!-- Memory Graph -->
     <div id="scatter-plot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>

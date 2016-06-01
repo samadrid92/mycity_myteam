@@ -27,7 +27,7 @@ class MemoriesController < ApplicationController
     @memory = @team.memories.find_by_id(params[:memory_id])
   end
 
-  # creates a whole new memory with edited version
+  # creates a whole new memory with edited version(must fix)
   def update
     @city = City.find(params[:city_id])
     @team = @city.teams.find_by_id(params[:team_id])
