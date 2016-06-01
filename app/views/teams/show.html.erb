@@ -1,4 +1,7 @@
 <h1>You Made it to teams show page!</h1>
+<!-- grabs city and team id for ajax params -->
+<%= hidden_field_tag 'cityId', value = @city.id %>
+<%= hidden_field_tag 'teamId', value = @team.id %>
 
 <h1><%= @team.team_name %></h1>
 <div class="section grey">
@@ -6,7 +9,6 @@
     HI
   </div>
 </div>
-
 
 <div class="section white">
   <div class="row container">
@@ -24,7 +26,27 @@
 <div class="section white">
   <div class="row container">
     <h2 class="header">Parallax</h2>
-     
+    <!-- modal trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1" data-target="#modal1">Create A Memory!</a>
+
+    <!-- Modal Structure/create a new memory -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Add A Memory</h4>
+        <%= form_for :memory, :url => city_team_memories_path(@city, @team) do |m| %>
+          <%= m.text_field :name, placeholder: "Your Name" %>
+          <%= m.text_area :description, placeholder: "Your Memory Of Team" %>
+          <%= m.number_field :age, placeholder: "Your age" %>
+          <%= m.date_field :date, placeholder: "When did this happen?" %>
+          <%= m.text_field :hometown, placeholder: "Your Hometown" %>
+          <%= m.submit "Save Team" %>
+          <% end %>
+      </div>
+    </div>
+
+    <!-- Memory Graph -->
+    <div id="scatter-plot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+
   </div>
 </div>
 
