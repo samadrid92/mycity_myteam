@@ -1,3 +1,24 @@
 <% @memories.each do |m| %>
-  <%= m.name %>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card white darken-1">
+      <div class="card-content black-text">
+        <p>
+          <strong>ID:</strong> <%= m.id %><br>
+          <strong>User's Name:</strong> <%= m.name %><br>
+          <strong>Memory:</strong> <%= m.description %><br>
+          <strong>Age:</strong> <%= m.age %><br>
+          <strong>Date:</strong> <%= m.date %><br>
+          <strong>Hometown:</strong> <%= m.hometown %><br>
+          <strong>User Id:</strong> <%= m.user_id %><br>
+          <strong>Team Id:</strong> <%= m.team_id %>
+        </p>
+      </div>
+      <div class="card-action">
+        <%= link_to "Edit", edit_team_memory_path(@city.id, @team.id, m.id) %>
+        <%= link_to "Delete", destroy_team_memory_path(@city.id, @team.id, m.id), method: :delete, data: { confirm: 'Are You Sure?' } %>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
