@@ -1,3 +1,82 @@
+
+<!-- javascript for scatter plot -->
+<script type="text/javascript">
+$(function () {
+    $('#scatter-plot').highcharts({
+        chart: {
+            type: 'scatter',
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'Memory Chart'
+        },
+        xAxis: {
+            title: {
+                enabled: true,
+                text: 'Date (year)'
+            },
+            startOnTick: true,
+            endOnTick: true,
+            showLastLabel: false
+        },
+        yAxis: {
+            title: {
+                text: 'Age (When Memory Occured)'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 100,
+            y: 70,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+            borderWidth: 1
+        },
+        plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 5,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: true
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.x} cm, {point.y} kg'
+                }
+            }
+        },
+        series: [{
+            name: 'Female',
+            color: 'rgba(223, 83, 83, .5)',
+            data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
+                [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8]]
+
+        }]
+    });
+});
+
+$(document).ready(function(){
+   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+   $('.modal-trigger').leanModal();
+   console.log("loading modal js stuff");
+ })
+
+</script>
+
+
 <h1>You Made it to teams show page!</h1>
 
 <h1><%= @team.team_name %></h1>
@@ -24,7 +103,36 @@
 <div class="section white">
   <div class="row container">
     <h2 class="header">Parallax</h2>
-     
+    <!-- modal trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1" data-target="#modal1">Create A Memory!</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Add A Memory</h4>
+        <%= form_for :memory, :url => city_team_memories_path(@city, @team) do |m| %>
+          <%= m.text_field :name, placeholder: "Your Name" %>
+          <%= m.text_area :description, placeholder: "Your Memory Of Team" %>
+          <%= m.number_field :age, placeholder: "Your age" %>
+          <%= m.date_field :date, placeholder: "When did this happen?" %>
+          <%= m.text_field :hometown, placeholder: "Your Hometown" %>
+          <%= m.submit "Save Team" %>
+          <% end %>
+      </div>
+    </div>
+
+    <%  @memories.each do |m|%>
+    <tr class="memories-row" data-memory-name="<%= m.name  %>" data-memory-age="<%= m.age %>" data-memory-date="<%= m.date %>">
+      <td class="memories-table"><%= m.name %></td>
+      <td class="memories-table"><%= m.description %></td>
+      <td class="memories-table">$<%= m.age %></td>
+      <td class="memories-table"><%= m.date %></td>
+      <td class="memories-table"><%= m.hometown %></td>
+    </tr>
+    <% end %>
+
+    <!-- Memory Graph -->
+    <div id="scatter-plot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
   </div>
 </div>
 

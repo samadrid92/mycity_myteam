@@ -14,14 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 
-// (function($){
+// $(document).ready(function(){
+
   $(function(){
     $('.parallax').parallax();
   });
-// })(jQuery);
-// ​
-// (function($){
+
   $(function(){
     $(".button-collapse").sideNav();
   });
-// })(jQuery);
+
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  // $('.modal-trigger').leanModal();
+  // console.log("loading modal js stuff");
+
+
+ // })

@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   before_action :set_city
   before_action :find_team, only: [:show, :index]
+  before_action :find_memories, only: :show
 
   def index
     @teams = Team.all
@@ -9,6 +10,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = @city.teams.find_by_id(params[:team_id])
+    @memory = @team.memories.find_by_id(params[:memory_id])
   end
 
   def new
@@ -60,9 +62,10 @@ class TeamsController < ApplicationController
     def find_team
     # This assumes you have an association set up as needed
       @team = Team.find_by_id(params[:id])
+    end
 
-      # if @team.nil?
-      #   redirect_to root_path
-      # end
+    def find_memories
+      @team = @city.teams.find_by_id(params[:team_id])
+      @memory = @team.memories.find_by_id(params[:memory_id])
     end
 end
