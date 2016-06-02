@@ -37,13 +37,13 @@
           <%= m.text_field :name, placeholder: "Your Name" %>
           <%= m.text_area :description, placeholder: "Your Memory Of Team" %>
           <%= m.number_field :age, placeholder: "Your age" %>
-          <%= m.date_field :date, placeholder: "When did this happen?" %>
+          <%= m.date_field :date, placeholder: "What Year did this happen?", :class => "datepicker" %>
           <%= m.text_field :hometown, placeholder: "Your Hometown" %>
           <%= m.submit "Save Team" %>
           <% end %>
       </div>
     </div>
-
+  
     <!-- Memory Graph -->
     <div id="scatter-plot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 

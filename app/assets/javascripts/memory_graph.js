@@ -14,8 +14,9 @@ function onSuccess(json){
   var dataArrays = [];
   var dataNames = [];
   json.forEach(function plotPoints(j){
-
-    dataArrays.push([j.date, j.age]);
+    var newDate = Date.parse(j.date);
+    console.log(newDate);
+    dataArrays.push([newDate, j.age]);
   });
         $('#scatter-plot').highcharts({
             chart: {
@@ -30,6 +31,17 @@ function onSuccess(json){
                     enabled: true,
                     text: 'Date (year)'
                 },
+                type: 'datetime',
+                dateTimeLabelFormats: {
+                  millisecond: '%H:%M:%S.%L',
+                	second: '%H:%M:%S',
+                	minute: '%H:%M',
+                	hour: '%H:%M',
+                	day: '%e. %b',
+                	week: '%e. %b',
+                	month: '%b \'%y',
+                	year: '%Y'
+                },
                 startOnTick: true,
                 endOnTick: true,
                 showLastLabel: false
@@ -37,7 +49,8 @@ function onSuccess(json){
             yAxis: {
                 title: {
                     text: 'Age (When Memory Occured)'
-                }
+                },
+                max: 100
             },
             legend: {
                 layout: 'vertical',
@@ -79,6 +92,7 @@ function onSuccess(json){
                 data: dataArrays
             }]
         });
+        console.log(dataArrays)
   };
 });
 
