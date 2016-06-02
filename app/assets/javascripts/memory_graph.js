@@ -12,10 +12,13 @@ $.ajax({
 function onSuccess(json){
   console.log(" 1. here is the json: ", json)
   var dataArrays = [];
-  var dataNames = [];
   json.forEach(function plotPoints(j){
-
-    dataArrays.push([j.date, j.age]);
+    var newDate = Date.parse(j.date);
+    dataArrays.push({
+                    x: newDate,
+                    y: j.age,
+                    name: j.name
+                  });
   });
         $('#scatter-plot').highcharts({
             chart: {
@@ -30,6 +33,17 @@ function onSuccess(json){
                     enabled: true,
                     text: 'Date (year)'
                 },
+                type: 'datetime',
+                dateTimeLabelFormats: {
+                  millisecond: '%H:%M:%S.%L',
+                	second: '%H:%M:%S',
+                	minute: '%H:%M',
+                	hour: '%H:%M',
+                	day: '%e. %b',
+                	week: '%e. %b',
+                	month: '%b \'%y',
+                	year: '%Y'
+                },
                 startOnTick: true,
                 endOnTick: true,
                 showLastLabel: false
@@ -37,7 +51,8 @@ function onSuccess(json){
             yAxis: {
                 title: {
                     text: 'Age (When Memory Occured)'
-                }
+                },
+                max: 100
             },
             legend: {
                 layout: 'vertical',
@@ -70,12 +85,21 @@ function onSuccess(json){
                     tooltip: {
                         headerFormat: '<b>{series.name}</b><br>',
                         pointFormat: '{point.x} (year), {point.y} years old'
+                    },
+                    cursor: 'pointer',
+                    events:{
+                      click: function (e) {
+                        alert(json)
+                        this.age
+                          // json.forEach(function(j){
+                          //   alert(j)
+                          // })
+                      }
                     }
                 }
             },
             series: [{
-                name: 'hiname',
-                color: 'rgba(223, 83, 83, .5)',
+                color: 'rgba(0, 92, 230, .5)',
                 data: dataArrays
             }]
         });
