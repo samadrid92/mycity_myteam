@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
     if @team
       @user = current_user
       @memory = Memory.new
+      @memoryShow = @team.memories.find_by_id(params[:memory_id])
       @memories = @team.memories.all
       render :show
     else
