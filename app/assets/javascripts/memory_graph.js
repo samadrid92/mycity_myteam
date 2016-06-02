@@ -17,7 +17,8 @@ function onSuccess(json){
     dataArrays.push({
                     x: newDate,
                     y: j.age,
-                    name: j.name
+                    name: j.name,
+                    description: j.description
                   });
   });
         $('#scatter-plot').highcharts({
@@ -65,33 +66,38 @@ function onSuccess(json){
                 borderWidth: 1
             },
             plotOptions: {
-                scatter: {
-                    marker: {
-                        radius: 5,
-                        states: {
-                            hover: {
-                                enabled: true,
-                                lineColor: 'rgb(100,100,100)'
-                            }
-                        }
-                    },
-                    states: {
-                        hover: {
-                            marker: {
-                                enabled: true
-                            }
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: '<b>{series.name}</b><br>',
-                        pointFormat: '{point.x} (year), {point.y} years old'
-                    },
-                    cursor: 'pointer',
+              scatter: {
+                  marker: {
+                      radius: 5,
+                      states: {
+                          hover: {
+                              enabled: true,
+                              lineColor: 'rgb(100,100,100)'
+                          }
+                      }
+                  },
+                  states: {
+                      hover: {
+                          marker: {
+                              enabled: true
+                          }
+                      }
+                  },
+                  tooltip: {
+                      headerFormat: '<b>{series.name}</b><br>',
+                      pointFormat: '{point.x} (year), {point.y} years old'
+                  },
+                  cursor: 'pointer',
+                  point: {
                     events: {
-                      click: $('#show-memory-modal').click(function () {
-                          alert('HI!')
-                      })
+                      click: function () {
+                        alert("Name:" + ' ' + this.name + '\n' +
+                              "Date:" + ' ' + this.x + '\n' +
+                              "Age:" + ' ' + this.y + '\n' +
+                              "Memory:" + ' ' + this.description);
+                      }
                     }
+                  }
                 }
             },
             series: [{
