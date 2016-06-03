@@ -16,21 +16,21 @@
 
 $(document).ready(function(){
 
-  $(function(){
-    $('.parallax').parallax();
-  });
+  $('.parallax').parallax();
 
-  $(function(){
-    $(".button-collapse").sideNav();
-  });
+  // hambuger menu works when screen is small enough
+  $(".button-collapse").sideNav();
 
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal-trigger').leanModal();
   console.log("loading modal js stuff");
-  //image carousel for welcome page
-  $(document).ready(function(){
-      $('.slider').slider({full_width: true});
-    });
 
+  //image carousel for welcome page
+  $('.slider').slider({full_width: true});
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 30 // Creates a dropdown of 15 years to control year
+  });
 
  })

@@ -27,17 +27,17 @@
   <div class="row container">
     <h2 class="header">Parallax</h2>
     <!-- modal trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1" data-target="#modal1">Create A Memory!</a>
+    <a class="waves-effect waves-light btn modal-trigger" href="#create-memory-modal" data-target="#create-memory-modal">Create A Memory!</a>
 
     <!-- Modal Structure/create a new memory -->
-    <div id="modal1" class="modal">
+    <div id="create-memory-modal" class="modal">
       <div class="modal-content">
         <h4>Add A Memory</h4>
         <%= form_for :memory, :url => city_team_memories_path(@city, @team) do |m| %>
           <%= m.text_field :name, placeholder: "Your Name" %>
           <%= m.text_area :description, placeholder: "Your Memory Of Team" %>
           <%= m.number_field :age, placeholder: "Your age" %>
-          <%= m.date_field :date, placeholder: "When did this happen?" %>
+          <%= m.date_field :date, placeholder: "What Year did this happen?", :class => "datepicker" %>
           <%= m.text_field :hometown, placeholder: "Your Hometown" %>
           <%= m.submit "Save Team" %>
           <% end %>
@@ -47,6 +47,17 @@
     <!-- Memory Graph -->
     <div id="scatter-plot" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 
+  </div>
+
+  <!-- modal trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#show-memory-modal" data-target="#show-memory-modal">kejfkenf</a>
+
+  <!-- memory show(when point is clicked, this modal shows) -->
+  <div id="show-memory-modal" class="modal">
+    <div class="modal-content">
+      <h4> Memory</h4>
+
+    </div>
   </div>
 </div>
 

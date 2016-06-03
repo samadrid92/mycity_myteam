@@ -1,9 +1,24 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+
+margin: 0;
+padding: 0;
+
+}
+.title{
+  color: blue;
+  position: absolute;
+}
+
+#video{
+  // position: relative;
+}
+
 .row {
   height: 500px;
-  color: red;
+  color: white;
 }
 
 .about-pic{
@@ -15,6 +30,35 @@
 
 }
 
-#video{
+#home-pic{
+  z-index: 1;
+  color: white;
+}
+
+.footer-copyright{
+  margin-top: 0px;
+  border: 3px solid black;
+}
+
+#two-row{
+  margin-bottom: 0px;
+}
+
+#row-slider{
+  margin-bottom: 0px;
+}
+
+.slider .slides li img {
+    margin: 40px 40px 0px 0px;
+    height:200px;
+}
+
+.slider .slides li{
+  margin-right: 40px;
+}
+
+.cities-h2 {
+
+  margin: 0;
 
 }
