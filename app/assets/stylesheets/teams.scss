@@ -15,7 +15,7 @@
 
 .team-show-row{
   height: 300px;
-  background-color: blue;
+  background-image: url('http://losangeles.dodgers.mlb.com/images/facebook/clubcovers/la/LAD_12-Facebook-Timeline-Covers_dodger-blue_MISCELLANEOUS.jpg');
 }
 
 .team-show-row h1{
@@ -23,14 +23,7 @@
   color: white;
   font-size: 25vh;
   margin-top: 0px;
-}
 
-.histroy-row{
-  height: 500px;
-}
-
-.venue-row{
-  height: 500px;
 }
 
 #create-memory-modal{
@@ -42,12 +35,29 @@
   height: 300px;
   border: 3px solid black;
   position: relative;
+  margin: 12px 20px 20px 9px;
 }
 
 .venue-pic{
   width: 420px;
   height: 300px;
   border: 3px solid black;
-  margin: 89px 2px 59px 19px;
+  margin: 12px 20px 20px 9px;
   position: relative;
+}
+
+#history-row{
+  height: 300px;
+}
+
+#venue-row{
+  height: 300px;
+}
+
+// #venue-text{
+//   width:100%;
+// }
+
+#venue-pic{
+
 }
