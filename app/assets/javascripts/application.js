@@ -16,7 +16,7 @@
 
 $(document).ready(function(){
 
-  $('.parallax').parallax();
+
 
   // hambuger menu works when screen is small enough
   $(".button-collapse").sideNav();
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 30 // Creates a dropdown of 15 years to control year
+    selectYears: 100 // Creates a dropdown of 15 years to control year
   });
 
  })

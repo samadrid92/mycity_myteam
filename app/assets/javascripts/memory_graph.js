@@ -81,7 +81,7 @@ function onSuccess(json){
                     events: {
                       click: function () {
                         alert("Name:" + ' ' + this.name + '\n' +
-                              "Date:" + ' ' + Date.UTC(this.x) + '\n' +
+                              "Date:" + ' ' + (this.x) + '\n' +
                               "Age:" + ' ' + this.y + '\n' +
                               "Memory:" + ' ' + this.description);
                       }
@@ -90,6 +90,7 @@ function onSuccess(json){
                 }
             },
             series: [{
+                name: 'Memory',
                 color: 'rgba(0, 92, 230, .5)',
                 data: dataArrays
             }]
