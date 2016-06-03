@@ -1,5 +1,5 @@
 <% @cities.each do |c| %>
-<div class="row">
+<div class="row-container">
   <div class="col s12 m6">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
@@ -10,9 +10,6 @@
           <strong>Nicknames:</strong> <%= c.nicknames %><br>
           <strong>Header URL:</strong> <%= c.header_pic %>
         </p>
-        <hr>
-        Teams:
-        
       </div>
       <div class="card-action">
         <%= link_to "Edit", edit_city_path(c) %>

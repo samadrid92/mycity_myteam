@@ -17,19 +17,21 @@
 <body>
 
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue-grey darken-2">
       <a href="/" class="brand-logo">MyCityMyTeam</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">view_headline</i></a>
       <ul class="right hide-on-med-and-down">
         <% if current_user %>
-        <li><%= link_to "What is MyCityMyTeam?", logout_path%></li>
-        <li><%= link_to "Cities", logout_path  %></li>
+        <li><a href="#app-info">What is MyCityMyTeam?</a></li>
+        <li><a href="#sports-info">Sports</a></li>
+        <li><a href="#cities">Cities</a></li>
         <li><%= link_to "Profile", new_user_path %></li>
         <li><%= link_to "Log Out", logout_path %></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><%= link_to "What is MyCityMyTeam?", logout_path%></li>
-        <li><%= link_to "Cities", logout_path  %></li>
+        <li><a href="#app-info">What is MyCityMyTeam?</a></li>
+        <li><a href="#sports-info">Sports</a></li>
+        <li><a href="#cities">Cities</a></li>
         <li><%= link_to "Profile", new_user_path %></li>
         <li><%= link_to "Log Out", logout_path %></li>
       </ul>
