@@ -11,8 +11,26 @@
 // about supported directives.
 //
 //= require jquery
-//= require materialize-sprockets
-//= require materialize/extras/nouislider
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+
+
+  // hambuger menu works when screen is small enough
+  $(".button-collapse").sideNav();
+
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+  console.log("loading modal js stuff");
+
+  //image carousel for welcome page
+  $('.slider').slider({full_width: true});
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 100 // Creates a dropdown of 15 years to control year
+  });
+
+ })

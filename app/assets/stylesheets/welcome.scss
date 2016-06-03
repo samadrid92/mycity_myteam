@@ -1,3 +1,77 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.title{
+  color: white;
+  position: absolute;
+  z-index: 9999;
+  margin-top: 100px;
+  margin-left: 55px;
+  font-size: 25vh;
+  text-shadow: 4px 4px 10px black;
+}
+
+.row {
+  height: 500px;
+  color: white;
+}
+
+.about-pic{
+  width: 420px;
+  height: 300px;
+  border: 3px solid black;
+  margin: 89px 2px 59px 19px;
+  position: relative;
+
+}
+
+p1 {
+  font-size: 30px;
+}
+
+#baseball-pic{
+  color: white;
+  text-align: center;
+  background-image: url('http://static2.businessinsider.com/image/526abc156bb3f7952b48a0a1/the-theory-that-baseball-is-dying-is-a-total-myth.jpg');
+  background-size: cover;
+  margin-bottom: 0px;
+}
+
+#baseball-pic h2{
+  position: relative;
+  margin-top: 0px;
+  font-size: 70px;
+}
+
+.footer-copyright{
+  margin-top: 0px;
+}
+
+#two-row{
+  margin-bottom: 0px;
+  background-color: #455a64;
+  text-shadow: 4px 4px 10px black;
+}
+
+#row-slider{
+  margin-bottom: 0px;
+  background-color: #455a64;
+}
+
+#row-slider h1{
+  font-size: 140px;
+}
+
+.slider .slides li{
+  height: 470px;
+  background-color: #455a64;
+}
+
+.slider .slides li img{
+  height: 530px;
+  width: 1440px;
+  background-size: cover;
+  margin-left: 0px;
+  margin-top: 24px;
+  background-position: center;
+}
