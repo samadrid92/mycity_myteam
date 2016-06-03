@@ -76,23 +76,12 @@ function onSuccess(json){
                           }
                       }
                   },
-                  states: {
-                      hover: {
-                          marker: {
-                              enabled: true
-                          }
-                      }
-                  },
-                  tooltip: {
-                      headerFormat: '<b>{series.name}</b><br>',
-                      pointFormat: '{point.x} (year), {point.y} years old'
-                  },
                   cursor: 'pointer',
                   point: {
                     events: {
                       click: function () {
                         alert("Name:" + ' ' + this.name + '\n' +
-                              "Date:" + ' ' + this.x + '\n' +
+                              "Date:" + ' ' + Date.UTC(this.x) + '\n' +
                               "Age:" + ' ' + this.y + '\n' +
                               "Memory:" + ' ' + this.description);
                       }
