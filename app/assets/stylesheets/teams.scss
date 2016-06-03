@@ -1,3 +1,53 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.memory-row{
+  height: 600px;
+  background-color: #455a64;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#scatter-plot{
+  margin-bottom: 30px;
+}
+
+.team-show-row{
+  height: 300px;
+  background-color: blue;
+}
+
+.team-show-row h1{
+  text-align: center;
+  color: white;
+  font-size: 25vh;
+  margin-top: 0px;
+}
+
+.histroy-row{
+  height: 500px;
+}
+
+.venue-row{
+  height: 500px;
+}
+
+#create-memory-modal{
+  color: black;
+}
+
+.history-pic{
+  width: 420px;
+  height: 300px;
+  border: 3px solid black;
+  position: relative;
+}
+
+.venue-pic{
+  width: 420px;
+  height: 300px;
+  border: 3px solid black;
+  margin: 89px 2px 59px 19px;
+  position: relative;
+}

@@ -16,7 +16,7 @@
 
 $(document).ready(function(){
 
-  $('.parallax').parallax();
+  
 
   // hambuger menu works when screen is small enough
   $(".button-collapse").sideNav();
